@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator</title>
+</head>
+<body>
+    
+
+    <script>
+        // con * se hace un generador
+        function* generator(){
+            console.log("Holi")
+            yield 1;
+            yield 2;
+            yield "el ultimo es 3";
+            console.log("Bye")
+        }
+        function* makerIDS(){
+            let id = 1;
+            while(true){
+                yield id;
+                id += 1
+            }
+        }
+        function* makerIDSWithReset(){
+            let id = 1;
+            let reset;
+            while(true){
+                reset = yield id;
+                if(reset){
+                    id = 1
+                }else{
+                    id = id + 1
+                }
+            }
+        }
+        function* makerHundrenIds(){
+            let i = 0;
+            reset = 0;
+            while(true){
+                console.log(i)
+                i++
+                if(i%10 == 0){
+                    yield "Parar";
+                } 
+            }
+        }
+        const myGenerator = generator()
+        const myIds = makerIDS();
+        const myGenIds = makerIDSWithReset()
+        const myGenIdsCien = makerHundrenIds()
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica con closures</title>
+</head>
+<body>
+    
+
+    <script>
+        // auto invocando
+        // Pdata: Siempre invocarlo de primeras
+        // pdata: Variables 
+        (function(){
+    
+            let carrito = ["manzana","frambuesa", "banana"];
+            function show(item){
+                console.log(item)
+            }
+            show(carrito)
+        })();
+        // scope llamando a una función dentro de otra
+        const matriculados = () => {
+            let lista = [];
+            function mostrar (alumno){
+                lista.push(alumno)        
+            }
+            console.log(lista)
+            return mostrar    
+        }
+        const myMatriculados = matriculados();
+        myMatriculados("Miguel")
+        myMatriculados("Juan")
+        myMatriculados("Andres")
+
+        // variables privadas
+        function segundoMinutos(minutos){
+            let Minutos = minutos;
+            // retorna metodos
+            return {
+                show:  function(){
+                    let resultado = minutos * 60
+                    console.log(resultado)
+                }
+            }
+        }
+
+        const convertidor = segundoMinutos(60);
+        convertidor.show()
+        
+       
+    </script>
+</body>
+</html>

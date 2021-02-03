@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API publica con fetch</title>
+</head>
+<body>
+    <div class="universo">
+        <button id="Boton">Random</button>
+        <section id="usuarios">
+            <img src="" width="100px">
+            <p></p>
+        </section>
+    </div>
+
+    <script>
+        // se obtiene la id del boton y del lugar donde meteremos los datos
+        document.getElementById("Boton").addEventListener("click", random);
+        let usuarios = document.getElementById("usuarios");
+        function random(){
+            //el fetch obtiene la url
+            fetch("https://randomuser.me/api/")
+            // el .then convierte a json
+            .then(datos => datos.json())
+            // y este .then pinta los datos
+            .then(datos =>{ 
+                usuarios.innerHTML = `
+                <img src="${datos.results["0"].picture.large}" width="100px">
+                <p>${datos.results["0"].login.username}<br> ${datos.results["0"].name.first}</p>
+                `;
+            });
+        }
+    </script>
+</body>
+</html>

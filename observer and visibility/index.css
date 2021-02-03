@@ -1,0 +1,64 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.universo {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: ()[1fr];
+      grid-template-columns: repeat(1fr);
+  -ms-grid-rows: minmax(100vh, auto);
+      grid-template-rows: minmax(100vh, auto);
+  grid-auto-rows: minmax(100vh, auto);
+  grid-row-gap: 25px;
+}
+
+.contenedor {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 200px 1fr 200px;
+      grid-template-rows: 200px 1fr 200px;
+  grid-gap: 20px;
+  margin: 0px 25px;
+  background-color: royalblue;
+  -webkit-transition: all 1s linear;
+  transition: all 1s linear;
+}
+
+.contenedor .cajas {
+  background-color: #fbff00;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.yellow {
+  background-color: #fbff00;
+  -webkit-transition: all 1s linear;
+  transition: all 1s linear;
+}
+
+.prueba {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 200px 1fr 200px;
+      grid-template-rows: 200px 1fr 200px;
+  grid-gap: 20px;
+  margin: 0px 25px;
+  background-color: royalblue;
+}
+/*# sourceMappingURL=index.css.map */

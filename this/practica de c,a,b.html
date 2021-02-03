@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica de call, bind y apply</title>
+</head>
+<body>
+    
+    <ul>
+        <li><button class="callToAction">Soy un boton men</button></li>
+        <li><button class="callToAction">Soy un boton men</button></li>
+        <li><button class="callToAction">Soy un boton men</button></li>
+        <li><button class="callToAction">Soy un boton men</button></li>
+        <li><button class="callToAction">Soy un boton men</button></li>
+    </ul>
+
+    <script>
+        const Miguel = {
+            name: "Miguel",
+            apellido: "Vasquez",
+        }
+        const Jimena = {
+            name: "Jimena",
+            apellido: "Vargas",
+        }
+        function saludar(){
+            console.log(`Nombre: ${this.name} ${this.apellido}`)
+        }
+        function volar(velocidad, vehiculo){
+            console.log(`${this.name} ${this.apellido} está volando 
+            a ${velocidad} km/h en un ${vehiculo}`)
+        }
+        saludar.call(Miguel)
+        saludar.call(Jimena)
+        volar.call(Miguel, 100, "Carro")
+        volar.apply(Jimena, [100, "Avion"])
+
+        /* Con bind
+        se crea una nueva funcion con bind
+        por lo tanto se guarda en una variable para llamar 
+        despues */
+        const andres = {
+            name: "Daniel",
+            apellido: "Sanchez",
+        }
+        const saludoAndres = saludar.bind(andres)
+        saludoAndres()
+
+        // con parametros
+        const Danielvuela = volar.bind(andres)
+        Danielvuela(1000, "Barco")
+
+        const botones = document.getElementsByClassName("callToAction");
+        // Es un nodeList
+        // botones.forEach(button => {
+        //     button.onclick = () => console.log("Holi soy un boton")
+        // });
+        Array.prototype.forEach.call(botones, button => {
+            button.onclick = () => console.log("Holi soy un boton")
+        })
+    </script>
+</body>
+</html>

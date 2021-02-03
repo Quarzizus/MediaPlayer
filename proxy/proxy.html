@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxy</title>
+</head>
+<body>
+    
+    <script src="https://unpkg.com/fast-levenshtein@2.0.6/levenshtein.js"></script>
+    <script>
+        // levenshtein encuentra diferencias entre dos cadenas
+        // target : Objeto que queremos interceptar
+        // handler: 
+        const target = {
+            arroz: 'Diana',
+            azucar: 'Manuelita',
+            arepas: 'Sonsoñera',
+            nevera: 'Haceb',
+        }
+        const handler = {
+            // aquí van las trampas
+            get(obj, prop){
+                if(prop in obj){
+                    return obj[prop]
+                }
+                const suggest = Object.keys(obj).find(key => {
+                    // levenshtein se llama con el metodo
+                    return Levenshtein.get(key, prop) <= 3
+                })
+                
+                if(suggest){
+                    console.log(`No es ${prop}, quisiste decir ${suggest}`)
+                }
+                // retornar al final del else
+                return obj[prop]
+            }
+        }
+        const myFirtsProxy = new Proxy(target, handler)
+        </script>
+</body>
+</html>

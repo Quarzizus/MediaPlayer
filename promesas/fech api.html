@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API</title>
+</head>
+<body>
+    <div class="universo">
+        <button id="boton">Traer el texto</button>
+        <p id="caja"></p>
+    </div>
+
+    <script>
+        //obtenemos los ids de lo que necesitamos
+        document.getElementById("boton").addEventListener("click", traer);
+        let caja = document.getElementById("caja");
+        //creamos la funcion del evento
+        function traer(){
+            //fetch se encarga de hacer promesas
+            //tiene como parametro la url
+            fetch("archivo.txt")
+            //la primera promesa convierte el archivo a texto que se pueda leer
+            .then( datos => datos.text())
+            //la segunda promesa pinta los datos con el innerHTML y las comillas invertidas
+            .then(datos =>{
+                caja.innerHTML = `${datos}`
+            })
+        }
+    </script>
+</body>
+</html>

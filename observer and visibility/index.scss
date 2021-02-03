@@ -1,0 +1,45 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.universo{
+    display: grid;
+    grid-template-columns: repeat(1fr);
+    grid-template-rows: minmax(100vh, auto);
+    grid-auto-rows: minmax(100vh, auto); 
+    grid-row-gap: 25px;
+}
+.contenedor{
+    display: grid;
+    grid-template-rows: 200px 1fr 200px; 
+    grid-gap: 20px;
+    margin: 0px 25px;
+    background-color: royalblue;
+    transition: all 1s linear;
+
+    .cajas{
+        background-color: rgb(251, 255, 0);
+        grid-row: 2/3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+.blue{
+    background-color: blue;
+}
+.yellow{
+    background-color: rgb(251, 255, 0);
+    transition: all 1s linear;
+}
+.prueba{
+    display: grid;
+    grid-template-rows: 200px 1fr 200px; 
+    grid-gap: 20px;
+    margin: 0px 25px;
+    background-color: royalblue;
+}
+
+
+

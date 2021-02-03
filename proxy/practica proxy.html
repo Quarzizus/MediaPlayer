@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica de proxy</title>
+</head>
+<body>
+    <script src="https://unpkg.com/fast-levenshtein@2.0.6/levenshtein.js"></script>
+
+    <script>
+
+        const target = {
+            frutas: 'Banano',
+            carne: 'Cerdo',
+            vegetales: 'Tomate',
+            granos: 'Garbanzos',
+            lacteos: 'Mantequilla',
+        }
+        // prop es la supuestamente mala 
+        // key son los keys del target
+        const handler = {
+            get(obj, prop){
+                if(prop in obj){
+                    return obj[prop]
+                }
+                else{
+                    const suggestion = Object.keys(obj).find(key => {
+                        return Levenshtein.get(key, prop) <= 3
+                    })
+                    
+                    if(suggestion){
+                        console.log(`No es ${prop}, es ${suggestion}`)
+                    }
+                    return obj[prop]     
+                }
+            }
+        }
+
+        const proxyMine = new Proxy(target, handler)
+
+    </script>
+</body>
+</html>

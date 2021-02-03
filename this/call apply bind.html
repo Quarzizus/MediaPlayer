@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call, apply y bind</title>
+</head>
+<body>
+
+
+    <script>
+        // Establecer this usando call
+        
+        const richard = {
+            name: "Miguel",
+            apellido: "Vasquez"
+        }
+        function saludar(){
+            console.log(`Hola, soy ${this.name} ${this.apellido}`)
+        }
+        /* call llama a la function y de parametro le pasamos su
+        this  como parametro*/
+        saludar.call(richard)
+
+        function caminar (metros, direccion){
+            console.log(`${this.name} camina ${metros}
+            en la dirección ${direccion}`)
+        }
+        caminar.call(richard, 200, "Norte")
+        caminar.apply(richard, [400, "Suroeste"])
+
+        const Juan = { 
+            name: "Juan",
+            apellido: "Correa"
+        }
+        const juanSaluda = saludar.bind(Juan)
+        const juanCamina = caminar.bind(richard)
+        juanSaluda();
+        juanCamina(1000, "Sur mijo")
+        /* se puede iniciar un argumento y despues completarlo 
+        con otro */
+    </script>
+</body>
+</html>
