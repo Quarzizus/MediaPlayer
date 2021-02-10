@@ -15,10 +15,8 @@ let saludo = `Me llamo ${nombre}`
 // arrays 
 
 let people: string[] =["Miguel", "Jimena", "Juan"] 
-let peopleNumbers: Array< string | number> = []
+let peopleNumbers: Array< string | number> = ["Miguel", 3000]
 let newPeople = people.map(nombre => nombre + " Holi")
-peopleNumbers.push("Miguel")
-peopleNumbers.push(111)
 
 // console.log(people)
 // console.log(peopleNumbers)

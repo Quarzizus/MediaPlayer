@@ -130,12 +130,10 @@ var nombre = "Miguel";
 var saludo = "Me llamo " + nombre; // arrays 
 
 var people = ["Miguel", "Jimena", "Juan"];
-var peopleNumbers = [];
+var peopleNumbers = ["Miguel", 3000];
 var newPeople = people.map(function (nombre) {
   return nombre + " Holi";
-});
-peopleNumbers.push("Miguel");
-peopleNumbers.push(111); // console.log(people)
+}); // console.log(people)
 // console.log(peopleNumbers)
 // console.log(newPeople)
 // enum
@@ -187,7 +185,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42271" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42087" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
