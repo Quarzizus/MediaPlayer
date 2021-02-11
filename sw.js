@@ -21,14 +21,14 @@ async function precache(){
     // utilizamos caches del DOM
     const cache = await caches.open("v1")
     return cache.addAll([
-        '/',
-        '/index.html',
-        'assets/index.js',
-        'assets/MediaPlayer.js',
-        'assets/plugins/autoPlay.js',
-        'assets/plugins/autoPause.js',
-        'assets/index.css',
-        'assets.BigBuckBunny.mp4',
+        // '/',
+        // '/index.html',
+        // 'assets/index.js',
+        // 'assets/MediaPlayer.js',
+        // 'assets/plugins/autoPlay.js',
+        // 'assets/plugins/autoPause.js',
+        // 'assets/index.css',
+        // 'assets.BigBuckBunny.mp4',
     ])
 }
 
